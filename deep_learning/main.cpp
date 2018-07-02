@@ -50,11 +50,15 @@ int main(int argc, char** argv) {
     cout << "Transpose of matrix:" << endl;
     m->transpose()->dump();
     
+    const int IO_NODES = 3;
+    const int HIDDEN_LAYERS = 1;
     
     vector<int> topology;
-    topology.push_back(3);
-    topology.push_back(2);
-    topology.push_back(3);
+    topology.push_back(IO_NODES);
+    
+    for(int i = 0; i < HIDDEN_LAYERS; i++) topology.push_back(IO_NODES-1);
+    
+    topology.push_back(IO_NODES);
     
     vector<double> input;
     input.push_back(0.9);
